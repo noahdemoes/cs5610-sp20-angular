@@ -19,11 +19,18 @@ export class CourseListComponent implements OnInit {
     {_id: '456', title: 'Course D'}
   ]
 
+  selectedCourseId = 0;
+  selectCourse = courseId => {
+  this.selectedCourseId = courseId;
+  console.log(courseId)
+  }
+
+
   deleteCourse = (deletedCourse) =>
     this.courses = this.courses.filter(course => course !== deletedCourse)
 
   createCourse = (title) =>
-    this.courses.push({_id: '321', title})
+    this.service.createCourse({'title': title}).then(response => this.courses.push(response))
 
   ngOnInit(): void {
     this.service.findAllCourses()
