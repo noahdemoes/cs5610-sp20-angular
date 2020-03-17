@@ -1,12 +1,14 @@
-<h1>Course List {{courses.length}}</h1>
+<div class="container">
+  <h1>Course List {{courses.length}}</h1>
 
-<input [(ngModel)]="newCourseTitle"/>
-<button (click)="createCourse(newCourseTitle)">
-  Create New Course
-</button>
+  <input [(ngModel)]="newCourseTitle"/>
+  <button (click)="createCourse(newCourseTitle)">
+    Create New Course
+  </button>
 
-<h3>{{newCourseTitle}}</h3>
-<div>
+  <h3>{{newCourseTitle}}</h3>
+</div>
+<div class="container">
   <div class="col-8">
       <ul class="list-group">
 
@@ -21,15 +23,6 @@
           </button>
         </li>
       </ul>
-  </div>
-  <div class="col-4">
-    <ul class="list-group">
-      <li class="list-group-item active">
-        Modules </li>
-      <li class="list-group-item webdev"
-          *ngFor="let module of modules">
-        {{module.title}} </li>
-    </ul>
   </div>
 </div>
 
