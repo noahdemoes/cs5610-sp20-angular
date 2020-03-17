@@ -14,11 +14,13 @@ export class ModuleListComponent implements OnInit {
   {_id:"456",title:"Module 2"},
   {_id:"789",title:"Module 3"}
   ]
-  courseId =''
+  courseId = ''
+  moduleId = ''
 
   ngOnInit(): void {
     this.route.params.subscribe(params =>{
-    this.courseId = params.courseId})
+    this.courseId = params.courseId;
+    this.moduleId = params.moduleId})
   }
 
 }
