@@ -1,1 +1,11 @@
-<p>lesson-list works!</p>
+<h3>Lesson Tabs for Module: {{moduleId}}</h3>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="list-group-item webdev active"
+        [class]="{'active': lessonId === lesson._id}"
+        *ngFor="let lesson of lessons">
+      {{lesson.title}}
+    </li>
+  </ul>
+
+</div>

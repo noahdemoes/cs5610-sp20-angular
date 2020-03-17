@@ -15,7 +15,7 @@
             class="list-group-item"
             [ngClass]="{'active': course._id === selectedCourseId}"
             *ngFor="let course of courses">
-          <a href="/details/{{course._id}}">{{course.title}}</a>
+          <a routerLink="/details/{{course._id}}">{{course.title}}</a>
           <button (click)="deleteCourse(course)">
             Delete
           </button>
