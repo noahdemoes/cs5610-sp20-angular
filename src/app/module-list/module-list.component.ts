@@ -10,13 +10,10 @@ export class ModuleListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
 
-  modules = [
-  {_id:"123",title:"Module 1"},
-  {_id:"456",title:"Module 2"},
-  {_id:"789",title:"Module 3"}
-  ]
+  modules = [  ]
   courseId = ''
   moduleId = ''
+
 
   ngOnInit(): void {
     this.route.params.subscribe(params =>{

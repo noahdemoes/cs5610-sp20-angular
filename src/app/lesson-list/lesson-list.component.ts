@@ -9,14 +9,16 @@ export class LessonListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
 
-  lessons =[]
-  moduleId =''
-
-
+  lessons = []
+  moduleId = ''
+  courseId = ''
+  lessonId = ''
   ngOnInit(): void {
   this.route.params.subscribe(params =>{
     this.moduleId=params.moduleId;
-        fetch(`https://wbdv-generic-server.herokuapp.com/api/001425561/modules/VsfVjMzA69RFd0Ai/lessons`)
+    this.courseId=params.courseId;
+    this.lessonId=params.lessonId;
+        fetch(`https://wbdv-generic-server.herokuapp.com/api/001425561/modules/${this.moduleId}/lessons`)
           .then(response => response.json()).then(lessons => this.lessons=lessons);
   });
 
