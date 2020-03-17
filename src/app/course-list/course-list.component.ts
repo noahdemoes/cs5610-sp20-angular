@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseServiceClient} from '../services/CourseServiceClient';
-
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -19,15 +18,26 @@ export class CourseListComponent implements OnInit {
     {_id: '456', title: 'Course D'}
   ]
 
+  modules = [
+              {    "id": 1,    "title": "React"  },
+              {    "id": 2,    "title": "Angular"  },
+              {    "id": 3,    "title": "Node.js"  },
+              {    "id": 4,    "title": "MongoDB"  }
+            ]
+
+
   selectedCourseId = 0;
   selectCourse = courseId => {
   this.selectedCourseId = courseId;
   console.log(courseId)
+  this.service.findModulesForCourse(courseId).then(modules => this.modules=modules)
+
   }
 
-
   deleteCourse = (deletedCourse) =>
-    this.courses = this.courses.filter(course => course !== deletedCourse)
+    {this.service.deleteCourse(deletedCourse._id).then(response => console.log(response))
+    this.courses = this.courses.filter(course => course !== deletedCourse)}
+
 
   createCourse = (title) =>
     this.service.createCourse({'title': title}).then(response => this.courses.push(response))

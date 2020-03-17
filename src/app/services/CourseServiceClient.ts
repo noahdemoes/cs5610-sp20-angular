@@ -10,6 +10,12 @@ export class CourseServiceClient {
     fetch("https://wbdv-generic-server.herokuapp.com/api/001425561/courses/"+ cid)
        .then(response => response.json());
 
+  findModulesForCourse = (cid) =>
+    fetch("https://wbdv-generic-server.herokuapp.com/api/001425561/courses/"+ cid +"/modules")
+       .then(response => response.json());
+
+
+
 
   deleteCourse = (cid) =>
     fetch("https://wbdv-generic-server.herokuapp.com/api/001425561/courses/"+ cid,{method:'DELETE'})

@@ -1,1 +1,9 @@
-<p>module-list works!</p>
+<h2>Module List</h2>
+<div>
+    <ul class="list-group">
+      <li class="list-group-item webdev"
+          *ngFor="let module of modules">
+        <a href="/details/{{courseId}}/modules/{{module._id}}">{{module.title}}</a>
+         </li>
+    </ul>
+</div>
